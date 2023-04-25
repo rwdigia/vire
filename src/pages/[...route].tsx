@@ -16,7 +16,7 @@ import {
   ProductsQueryVariables,
 } from '../generated/types';
 const CategoryPage = dynamic(() => import('../components/CategoryPage'));
-//const ProductPage = dynamic(() => import('../components/ProductPage'));
+const ProductPage = dynamic(() => import('../components/ProductPage'));
 
 type Props = {
   type: string;
@@ -35,7 +35,7 @@ const renderSwitch = (props: Props) => {
     case 'CATEGORY':
       return <CategoryPage {...props} />;
     case 'PRODUCT':
-      return <div>Not implemented.</div>;
+      return <ProductPage {...props} />;
     case '404':
       return <Error statusCode={404} />;
     default:
@@ -125,24 +125,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
 
     await Promise.all(promises);
-    /*
-  const metrics: number[] = [];
-    performance.mark('start');
-    await Promise.all(
-      promises.map((promise) => {
-        return promise?.then((value) => {
-          performance.mark('resolved');
-          performance.measure(value.operation.key + '', 'start', 'resolved');
-        });
-      }),
-    );
-
-    performance.getEntriesByType('measure').forEach((metric) => {
-      metrics.push(metric.duration);
-    });
-    performance.clearMarks();
-    performance.clearMeasures();
-    */
   }
 
   return {
