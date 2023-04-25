@@ -1,0 +1,12 @@
+schema:
+  - ${NEXT_PUBLIC_ADOBE_COMMERCE_URL}/graphql
+documents: './src/queries/*.graphql'
+generates:
+  ./src/generated/types.tsx:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-urql
+    hooks:
+      afterOneFileWrite:
+        - prettier --write

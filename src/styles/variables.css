@@ -1,0 +1,8 @@
+:root {
+  --font-family: 'Inter', sans-serif;
+  --space: 8px;
+  --border-radius: 25px;
+  --color-primary: #111;
+  --color-light: #f1f1f1;
+  --color-ultralight: #fafafa;
+}

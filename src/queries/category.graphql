@@ -1,0 +1,7 @@
+#import "./_categoryTree.graphql"
+
+query Category($filters: CategoryFilterInput) {
+  categoryList(filters: $filters) {
+    ...categoryTree
+  }
+}

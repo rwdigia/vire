@@ -1,0 +1,17 @@
+#import "./_products.graphql"
+
+query Products(
+  $search: String
+  $filters: ProductAttributeFilterInput
+  $pageSize: Int = 9
+  $page: Int = 1
+) {
+  products(
+    search: $search
+    filter: $filters
+    pageSize: $pageSize
+    currentPage: $page
+  ) {
+    ...products
+  }
+}

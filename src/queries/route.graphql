@@ -1,0 +1,16 @@
+query Route($url: String!) {
+  route(url: $url) {
+    type
+    ... on CategoryTree {
+      id: uid
+      uid
+    }
+    ... on CmsPage {
+      url_key
+    }
+    ... on ProductInterface {
+      id: uid
+      uid
+    }
+  }
+}

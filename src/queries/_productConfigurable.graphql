@@ -1,0 +1,41 @@
+#import "./_priceRange.graphql"
+
+fragment productConfigurable on ConfigurableProduct {
+  id: uid
+  uid
+  sku
+  url_key
+  url_suffix
+  name
+  description {
+    html
+  }
+  thumbnail {
+    id: url
+    url
+    label
+  }
+  media_gallery {
+    id: url
+    label
+    url
+    type: __typename
+  }
+  price_range {
+    ...priceRange
+  }
+  configurable_options {
+    id: uid
+    uid
+    label
+    position
+    use_default
+    attribute_code
+    values {
+      id: uid
+      uid
+      label
+    }
+    product_id
+  }
+}
