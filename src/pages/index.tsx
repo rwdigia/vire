@@ -17,7 +17,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const ssrCache = ssrExchange({ isClient: false });
   const client = initUrqlClient(
     {
-      url: new URL('/graphql', process.env.NEXT_PUBLIC_ADOBE_COMMERCE_URL).href,
+      url: '/api/graphql',
       exchanges: [dedupExchange, cacheExchange, ssrCache, fetchExchange],
       preferGetMethod: true,
     },

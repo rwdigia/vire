@@ -24,7 +24,7 @@ function MyApp(props: AppProps) {
 
 export default withUrqlClient(
   () => ({
-    url: new URL('/graphql', process.env.NEXT_PUBLIC_ADOBE_COMMERCE_URL).href,
+    url: '/api/graphl',
     preferGetMethod: true,
   }),
   { ssr: false, neverSuspend: true },
