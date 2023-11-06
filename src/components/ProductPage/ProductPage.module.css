@@ -11,3 +11,24 @@
   padding-bottom: calc(5 * var(--space));
   padding: calc(4 * var(--space));
 }
+
+.product {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column;
+}
+
+.images {
+  width: 50%;
+}
+
+.description {
+  width: 50%;
+}
+
+@media only screen and (min-width: 600px) {
+  .product {
+    flex-flow: row;
+  }
+}

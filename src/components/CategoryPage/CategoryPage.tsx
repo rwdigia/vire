@@ -46,7 +46,7 @@ export default function CategoryPage(props: Props) {
           <Head>
             <title>{category.name} - Vire</title>
           </Head>
-          <h2>{category.name}</h2>
+          <h2 className={styles.heading}>{category.name}</h2>
           <div className={styles.columns}>
             {category.children && (
               <div className={styles.categories}>
@@ -71,10 +71,10 @@ export default function CategoryPage(props: Props) {
                   )}
               </div>
             )}
-            {dataProducts?.products?.items &&
-            dataProducts?.products?.items.length > 0 ? (
-              <div className={styles.products}>
-                {dataProducts.products.items.map(
+            <div className={styles.products}>
+              {dataProducts?.products?.items &&
+              dataProducts?.products?.items.length > 0 ? (
+                dataProducts.products.items.map(
                   (product, index) =>
                     product && (
                       <ProductCard
@@ -83,11 +83,11 @@ export default function CategoryPage(props: Props) {
                         product={product}
                       />
                     ),
-                )}
-              </div>
-            ) : (
-              <>No products.</>
-            )}
+                )
+              ) : (
+                <>No products.</>
+              )}
+            </div>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ export default function HomePage() {
       <div className={styles.hero}>
         <h1>Next.js &amp; Adobe Commerce</h1>
         <span>
-          <Link href="https://github.com/rasmuswikman/vire">
+          <Link href="https://github.com/rwdigia/vire">
             <a>Learn more</a>
           </Link>
         </span>

@@ -5,6 +5,7 @@ import {
   ProductsQueryVariables,
 } from '../../generated/types';
 import { useQuery } from 'urql';
+import Image from 'next/image';
 import styles from './ProductPage.module.css';
 
 type Props = {
@@ -25,7 +26,40 @@ export default function ProductPage(props: Props) {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.container}>{JSON.stringify(data)}</div>
+      <div className={styles.container}>
+        {data.products?.items && data.products?.items.length > 0
+          ? data.products?.items.map(
+              (item, index) =>
+                item && (
+                  <div key={'product-index-' + index} className={styles.product}>
+                    <div className={styles.images}>
+                      {item?.media_gallery && item?.media_gallery.length > 0
+                        ? item?.media_gallery.map(
+                            (galleryItem, galleryItemIndex) =>
+                              galleryItem && (
+                                <Image
+                                  key={'gallery-index-' + galleryItemIndex}
+                                  src={galleryItem.url ?? ''}
+                                  alt={galleryItem.label ?? 'Product image'}
+                                  width={320}
+                                  height={397}
+                                  priority={index === 0}
+                                />
+                              ),
+                          )
+                        : null}
+                    </div>
+                    <div
+                      className={styles.description}
+                      dangerouslySetInnerHTML={{
+                        __html: item?.description?.html ?? '',
+                      }}
+                    />
+                  </div>
+                ),
+            )
+          : null}
+      </div>
     </div>
   );
 }

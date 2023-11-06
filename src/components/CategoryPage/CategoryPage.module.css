@@ -12,6 +12,10 @@
   padding: calc(4 * var(--space));
 }
 
+.heading {
+  margin-bottom: calc(2 * var(--space));
+}
+
 .columns {
   display: flex;
   justify-content: center;
@@ -19,8 +23,16 @@
   flex-flow: column;
 }
 
+.categories {
+  width: 200px;
+}
+
 .categories a {
   display: block;
+}
+
+.products {
+  width: 1000px;
 }
 
 @media only screen and (min-width: 600px) {
@@ -29,6 +41,8 @@
   }
 
   .products {
+    margin-left: calc(4 * var(--space));
+    margin-right: calc(4 * var(--space));
     display: grid;
     gap: calc(2 * var(--space));
     grid-template-columns: repeat(3, 1fr);
